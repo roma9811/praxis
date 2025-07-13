@@ -1,0 +1,114 @@
+ 
+/*  Navigation */
+ .nummer__praxis{
+   padding: 10px 50px 10px ;
+   color: #A82834;
+   font-size: 20px;
+   background-color:#dfe1e2;
+   cursor: pointer;
+   display: flex;
+   align-items: center;
+   justify-content: end;
+   gap: 10px;
+ }
+ .nav__box{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px;
+ }
+ .logo{
+    cursor: pointer;
+ }
+ .nav__list ul{
+    display: flex;
+    gap: 70px;
+    color: #565A60;
+    font-size: 20px;
+    align-items: center; 
+ }
+ .nav__list li{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+ }
+.nav__list ul li {
+  position: relative;
+  padding-bottom: 6px;
+  cursor: pointer;
+}
+.nav__list ul li::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;    
+  width: 0;         
+  background-color: #A82834;
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+.nav__list ul li:hover::after {
+  width: 100%;     
+}
+/* Navigation */
+
+
+
+/* Burger__Menu */
+.bm-burger-button {
+  display: none;
+  position: relative;
+  width: 26px;
+  height: 20px;
+}
+.bm-burger-bars {
+  background:#A82834;
+}
+.bm-cross{
+  background: #0c0c0c;
+  width: 56%;
+}
+.bm-menu {
+ background-color:#fff;
+  display: flex;
+  justify-content: center;
+  padding-top: 150px;
+  line-height: 100px;
+  font-size:25px;
+  color: #000;
+  text-align: center;
+}
+.bm-item{
+  cursor: pointer;
+  color: #565A60;
+} 
+.bm-menu-wrap{
+  top: 0 !important;
+}
+ /* Burger__Menu */
+
+
+
+
+
+
+
+/* Media__Screen */
+@media screen and (max-width: 767px) {
+  .nav__list ul{
+    display: none;
+ }
+ .bm-burger-button {
+    display: block;
+ }
+}
+
+@media screen and (min-width: 767px) and (max-width: 1023px) {
+  
+}
+
+ 
+
+
+ 
