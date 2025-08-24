@@ -1,113 +1,205 @@
- 
-/*  Navigation */
- .nummer__praxis{
-   padding: 10px 50px 10px ;
-   color: #A82834;
-   font-size: 20px;
-   background-color:#dfe1e2;
-   cursor: pointer;
-   display: flex;
-   align-items: center;
-   justify-content: end;
-   gap: 10px;
- }
- .nav__box{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 15px;
- }
- .logo{
-    cursor: pointer;
- }
- .nav__list ul{
-    display: flex;
-    gap: 70px;
-    color: #565A60;
-    font-size: 20px;
-    align-items: center; 
- }
- .nav__list li{
-    display: flex;
-    align-items: center;
-    gap: 5px;
- }
-.nav__list ul li {
-  position: relative;
-  padding-bottom: 6px;
+ /* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  z-index: 9999;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.nav__box {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 15px;
+}
+
+.logo {
   cursor: pointer;
 }
-.nav__list ul li::after {
+
+.nav_link {
+  color: #565A60;
+}
+
+.nav_link img {
+  float: left;
+}
+
+/* nav__list shared styles */
+.nav__list button,
+.nav__list a {
+  font-size: 1rem;
+  position: relative;
+  color: #555;
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: color 0.3s ease;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.nav__list button::after,
+.nav__list a::after {
   content: "";
   position: absolute;
   bottom: 0;
   left: 0;
-  height: 3px;    
-  width: 0;         
+  height: 3px;
+  width: 0;
   background-color: #A82834;
   transition: width 0.3s ease;
   border-radius: 2px;
 }
-.nav__list ul li:hover::after {
-  width: 100%;     
+
+.nav__list button:hover::after,
+.nav__list a:hover::after {
+  width: 100%;
 }
-/* Navigation */
-
-
-
-/* Burger__Menu */
+.vorsorge__btn,
+.untersuchung__btn {
+  color: #555;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.288);
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding-top: 10px;
+}
+.css-1tktgsa-MuiPaper-root-MuiPopover-paper-MuiMenu-paper {
+ 
+  z-index: 99999 !important;
+}
+/* Burger Menu */
 .bm-burger-button {
   display: none;
   position: relative;
   width: 26px;
   height: 20px;
 }
-.bm-burger-bars {
-  background:#A82834;
+
+.bm-burger-bars,
+.bm-cross {
+  background: #A82834;
 }
-.bm-cross{
-  background: #0c0c0c;
-  width: 56%;
+
+.bm-cross {
+  width: 5px !important;
+  height: 35px !important;
 }
-.bm-menu {
- background-color:#fff;
-  display: flex;
-  justify-content: center;
-  padding-top: 150px;
-  line-height: 100px;
-  font-size:25px;
-  color: #000;
-  text-align: center;
+
+.bm-cross-button {
+  right: 25px !important;
+  top: 20px !important;
 }
-.bm-item{
-  cursor: pointer;
-  color: #565A60;
-} 
-.bm-menu-wrap{
+
+.bm-menu-wrap {
   top: 0 !important;
 }
+
+.bm-menu {
+  display: flex;
+  flex-direction: column;
+  line-height: 100px;
+  font-size: 1.3rem;
+  text-align: center;
+  background: 
+    linear-gradient(rgba(255, 255, 255, 0.801), #fff),
+    url("../../Assets/Praxis-images/burger_background.png") no-repeat center / cover;
+}
+
+.bm-item {
+  cursor: pointer;
+  color: #555;
+  font-weight: bold;
+  margin-top: 80px;
+}
+
+.burger__box li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+  color: #333;
+}
+
+/* Footer inside burger menu */
+.burger__footer {
+  background: #F0EEEE;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.459);
+}
+
+.burger__footer ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+.burger__footer li {
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+}
+
+
  /* Burger__Menu */
 
-
-
-
-
-
+ 
 
 /* Media__Screen */
 @media screen and (max-width: 767px) {
-  .nav__list ul{
+  .nav__list{
     display: none;
  }
  .bm-burger-button {
-    display: block;
- }
+  display: block;
+}
+.nav__box {
+  display: flex;
+  gap:25px ;
+  align-items: center;
+  padding: 0px;
+}
+.logo img{
+  width: 150px;
+}
+ 
 }
 
 @media screen and (min-width: 767px) and (max-width: 1023px) {
-  
+  .nav__list{
+    display: none;
+ }
+ .bm-burger-button {
+  display: block;
 }
-
+.nav__box {
+  display: flex;
+  gap:25px ;
+  align-items: center;
+  padding: 0px;
+}
+.logo img{
+  width: 150px;
+}
+}
+@media screen and (min-width: 1024px) and (max-width: 1500px) {
+   .nav__box {
+    padding: 0px;
+ 
+}
+}
  
 
 

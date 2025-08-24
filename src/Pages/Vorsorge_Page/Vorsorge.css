@@ -1,0 +1,84 @@
+.vorsorge{
+  background-color:#fff;
+  height: auto;
+  padding:0 0 60px 0 ;
+  box-shadow: 0 2px 8px rgba(56, 56, 56, 0.452);
+}
+.vorsorge__container{
+    height: auto;
+    padding: 40px ;
+  background: linear-gradient(rgba(255, 255, 255, 0.295), rgba(255, 255, 255, 0.5)),
+              url("../../Assets/Praxis-images/vorsorge.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 30px;
+}
+ .vorsorge__box{
+  color: #555;
+   text-align: center;
+ }
+ .vorsorge__box span{
+  color: #A82834;
+ text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.288);
+}
+
+.vorsorge__text p{
+  font-size: 18px;
+  line-height: 35px;
+  color: #555;
+}
+.vorsorge__services__wrapper{
+  margin-top: 50px;
+  background-color: #F7F7F7;  
+  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+}
+.vorsorge__services h2,
+.diagnostik__box h2{
+  color:#A82834;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.24);
+}
+.diagnostik__box{
+  margin-top: 50px;
+}
+.vorsorge__services ul,
+.diagnostik__box ul{
+  color: #555;
+  font-size: 18px;
+  line-height: 35px
+}
+
+
+@media screen and (max-width: 767px) and (orientation: landscape) {
+  
+.vorsorge__services ul,
+.diagnostik__box ul{
+  color: #555;
+  font-size: 0.7rem;
+  line-height: 25px
+}
+.vorsorge__text p{
+  font-size:0.7rem;
+  line-height: 25px;
+  color: #555;
+}
+ 
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
+ .vorsorge__services ul,
+.diagnostik__box ul{
+  color: #555;
+  font-size:1rem;
+  line-height: 25px
+}
+.vorsorge__text p{
+  font-size:1rem;
+  line-height: 25px;
+  color: #555;
+}
+
+ 
+}

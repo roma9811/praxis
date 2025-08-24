@@ -1,0 +1,143 @@
+.main__two{
+    height:auto;
+    padding: 60px 0;
+   background-color:#F7F7F7;
+         
+    color: #555;
+}
+.leistungen__text h1{
+      font-size: 28px;
+    color: #555;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.288);
+}
+.leistungen__text{
+   display: flex;
+   gap: 8px;
+   align-items: center;
+}
+ .untersuchungen__container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 50px;
+  margin-top: 45px;
+  justify-items: center;
+}
+.untersuchungen__box p{
+    line-height: 38px;
+    font-size: 1.1rem;
+    padding: 20px;
+}
+
+.play{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+ .untersuchungen__box {
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.397);
+  display: flex;
+  flex-direction: column;
+ 
+}
+
+
+.box__header {
+  background-color: #A82834;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.box__header__two{
+  background-color: #A82834;
+}
+
+.box__header img {
+  filter: brightness(0) invert(1);  
+}
+
+
+
+
+
+/* Mobile Version */
+ 
+
+@media screen and (max-width: 767px) {
+  .leistungen__text h1 {
+    font-size: 1.50rem;
+  }
+.untersuchungen__container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  
+  }
+ .box__header h3{
+  font-size: 1.1rem;
+ }
+
+  .untersuchungen__box p {
+    line-height: 28px;
+    padding: 15px;
+  }
+}
+
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .leistungen__text h1 {
+    font-size: 24px;
+  }
+  .untersuchungen__container {
+    grid-template-columns:  repeat(2, 1fr); 
+    gap: 30px;
+  }
+
+  .untersuchungen__box p {
+    line-height: 32px;
+  }
+    .leistungen__text h1 {
+    font-size: 1.60rem;
+  }
+  
+}
+@media screen and (min-width: 1024px) and (max-width: 1500px) {
+  .leistungen__text h1 {
+    font-size: 26px;
+  }
+
+  .untersuchungen__container {
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 40px;
+  }
+
+  .untersuchungen__box p {
+    line-height: 36px;
+  }
+}
+ 
+
+
+
+/* Landscape */
+@media screen and (max-width: 767px) and (orientation: landscape) {
+ .untersuchungen__box p{
+    line-height:20px;
+    font-size: 0.7rem;
+    padding: 20px;
+}
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
+
+  .untersuchungen__box p{
+      line-height: 38px;
+    font-size: 1rem;
+    padding: 20px;
+}
+}
+

@@ -1,0 +1,148 @@
+ .main__three {
+    padding: 60px 0;
+}
+.ärzte__header{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #555;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.288);
+}
+.arzt__container{
+    margin-top: 45px;
+}
+.arzt__one img,
+.arzt__two img{
+    max-width: 400px;
+    width: 100%;
+    border-radius: 10px;
+}
+.arzt__one{
+    display: flex;
+    gap: 25px;
+    align-items: center;
+     background-color: #F7F7F7;
+     border-radius: 10px;
+       padding: 20px;
+}
+.arzt__two{
+    display: flex;
+    margin-top: 40px;
+    align-items: center;
+    gap: 25px;
+    background-color: #F7F7F7;
+     border-radius: 10px;
+     padding: 20px;
+}
+.arzt__box h2{
+    color: #A82834;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.288);
+}
+.arzt__box h3{
+    margin: 10px 0 10px 0;
+    color: #555;
+}
+.arzt__box p{
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 25px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*  Mobile Version */
+@media screen and (max-width: 767px) {
+    .ärzte__header h1{
+        font-size: 1.50rem;
+    }
+   .arzt__one{
+    display: flex;
+    flex-direction: column;
+}
+.arzt__two{
+    display: flex;
+    flex-direction: column-reverse;
+}
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .arzt__one{
+    display: flex;
+    flex-direction: column;
+}
+.arzt__two{
+    display: flex;
+    flex-direction: column-reverse;
+}
+.arzt__box h2{
+    color: #A82834;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.288);
+    text-align: center;
+}
+.arzt__box h3{
+    margin: 10px 0 10px 0;
+    color: #555;
+    text-align: center;
+}
+.arzt__box p{
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 25px;
+}
+
+}
+
+
+
+
+/* Landscape */
+@media screen and (max-width: 767px) and (orientation: landscape) {
+ .arzt__box p{
+    font-size: 0.7rem;
+    line-height: 25px;
+}
+
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
+   .arzt__box p{
+    font-size: 1rem;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

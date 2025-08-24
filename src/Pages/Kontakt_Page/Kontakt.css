@@ -1,0 +1,212 @@
+.kontakt{
+     height: auto;
+}
+.kontakt__content h1{
+    text-align: center;
+}
+.kontakt__content span{
+    color: #A82834;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.288);
+}
+.kontakt__content{
+    padding: 40px;
+}
+.kontakt__wrapper{
+  background: linear-gradient(rgba(255, 255, 255, 0.534), rgba(255, 255, 255, 0.596)),
+                url("../../Assets/Praxis-images/kontakt_telefon.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.anschrift_wrapper{
+    background-color: #fff;
+    padding: 30px ;
+}
+.anschrift_wrapper h2{
+    margin-bottom: 20px;
+     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.24)
+}
+.anschrift_wrapper li{
+    line-height: 30px;
+    font-size: 1.25rem;
+}
+.rezept_bestellungen_wrapper{
+   background-color: #f7f7f7;
+  padding: 30px 0 30px 0;
+  margin-top: 30px;
+        box-shadow: 15px 1px 8px rgba(56, 56, 56, 0.658);
+}
+.bestellung__container{
+    display: flex;
+   padding: 30px 0 30px 0;
+    gap: 20px;
+}
+.bestellungen_box h2{
+    color: #A82834;
+    margin-bottom:30px ;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.24)
+}
+.bestellungen_box p{
+    line-height: 30px;
+    font-size: 1.25rem;
+}
+ .rezept__überweisung{
+    position: relative;
+ }
+.img__überweisung{
+    position: absolute;
+    width: 80%;
+    left: 100px;
+    top: 20px;
+ }
+ .img__rezept{
+    max-width: 350px;
+ }
+ .termin__container{
+     background-color: #fff;
+    padding: 30px;
+         
+ }
+ .termin__header h2{
+    color: #555;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.24);
+    margin-bottom: 30px;
+ }
+ .termin__text{
+        line-height: 30px;
+    font-size: 1.25rem;
+}
+ 
+
+/* Mobile Version */
+
+ @media screen and (max-width: 767px) {
+
+.anschrift_wrapper li{
+    line-height: 30px;
+    font-size: 1.1rem;
+}
+.bestellung__container{
+    display: flex;
+     flex-direction: column;
+     align-items: center;
+   padding: 30px 0 30px 0;
+    gap: 20px;
+}
+
+.bestellungen_box p{
+    line-height: 30px;
+    font-size: 1.1rem;
+}
+ .rezept__überweisung{
+    position: relative;
+ }
+.img__überweisung{
+    position: absolute;
+    width: 80%;
+    left: 40px;
+    top: 20px;
+ }
+ .img__rezept{
+    max-width: 300px;
+ }
+ .termin__container{
+     background-color: #fff;
+    padding: 30px;
+         
+ }
+ .termin__header h2{
+    color: #555;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.24);
+    margin-bottom: 30px;
+ }
+ .termin__text{
+        line-height: 30px;
+    font-size: 1.1rem;
+}
+ }
+ @media screen and (min-width: 768px) and (max-width: 1023px) {
+    .anschrift_wrapper li{
+    line-height: 30px;
+    font-size: 1.1rem;
+}
+.bestellung__container{
+    display: flex;
+     flex-direction: column;
+     align-items: center;
+   padding: 30px 0 30px 0;
+    gap: 20px;
+}
+
+.bestellungen_box p{
+    line-height: 30px;
+    font-size: 1.1rem;
+}
+ .rezept__überweisung{
+    position: relative;
+ }
+.img__überweisung{
+    position: absolute;
+    width: 80%;
+    left: 40px;
+    top: 20px;
+ }
+ .img__rezept{
+    max-width: 300px;
+ }
+ .termin__container{
+     background-color: #fff;
+    padding: 30px;
+         
+ }
+ .termin__header h2{
+    color: #555;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.24);
+    margin-bottom: 30px;
+ }
+ .termin__text{
+        line-height: 30px;
+    font-size: 1.1rem;
+}
+ }
+
+
+
+
+
+ 
+/* Landscape */
+@media screen and (max-width: 767px) and (orientation: landscape) {
+.anschrift_wrapper li{
+    line-height: 30px;
+    font-size: 0.7rem;
+}
+
+.bestellungen_box p{
+    line-height: 25px;
+    font-size: 0.7rem;
+}
+ .termin__text{
+        line-height: 25px;
+    font-size: 0.7rem;
+}
+ 
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
+    .anschrift_wrapper li{
+    line-height: 30px;
+    font-size: 1rem;
+}
+
+.bestellungen_box p{
+    line-height: 25px;
+    font-size: 1rem;
+}
+ .termin__text{
+        line-height: 25px;
+    font-size: 1rem;
+}
+}
+
+
