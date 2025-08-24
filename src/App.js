@@ -1,7 +1,7 @@
  import React, { useState, useEffect, useRef } from "react"; 
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Fade } from "react-awesome-reveal"; // ✅ Анимация
+import { Fade } from "react-awesome-reveal";
 
 // Components
 import { FooterComponent } from './Components/FooterComponent/Footer';
@@ -21,6 +21,7 @@ import { Kontakt } from "./Pages/Kontakt_Page/Kontakt";
 
 // Scroll to Top
 import { ScrollToTop } from './ScrollToTop';
+
 
 const Spinner = () => (
   <div style={{
@@ -73,30 +74,12 @@ const AppWithContent = ({ headerKey, scrollToFooter }) => (
             }
           />
 
-          <Route 
-            path="/impressum" 
-            element={<Fade triggerOnce direction="up"><Impressum /></Fade>} 
-          />
-          <Route 
-            path="/datenschutz" 
-            element={<Fade triggerOnce direction="up"><Datenschutz /></Fade>} 
-          />
-          <Route 
-            path="/vorsorge" 
-            element={<Fade triggerOnce direction="up"><Vorsorge /></Fade>} 
-          />
-          <Route 
-            path="/untersuchungen" 
-            element={<Fade triggerOnce direction="up"><Untersuchung /></Fade>} 
-          />
-          <Route 
-            path="/notfall" 
-            element={<Fade triggerOnce direction="up"><Notfall /></Fade>} 
-          />
-          <Route  
-            path="/kontakt" 
-            element={<Fade triggerOnce direction="up"><Kontakt /></Fade>} 
-          />
+          <Route path="/impressum" element={<Fade triggerOnce direction="up"><Impressum /></Fade>} />
+          <Route path="/datenschutz" element={<Fade triggerOnce direction="up"><Datenschutz /></Fade>} />
+          <Route path="/vorsorge" element={<Fade triggerOnce direction="up"><Vorsorge /></Fade>} />
+          <Route path="/untersuchungen" element={<Fade triggerOnce direction="up"><Untersuchung /></Fade>} />
+          <Route path="/notfall" element={<Fade triggerOnce direction="up"><Notfall /></Fade>} />
+          <Route path="/kontakt" element={<Fade triggerOnce direction="up"><Kontakt /></Fade>} />
         </Routes>
       </div>
 
@@ -117,12 +100,34 @@ function App() {
     footerRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const preloadImages = () => {
+    return new Promise((resolve) => {
+      const images = Array.from(document.images);
+      let loadedCount = 0;
+
+      if (images.length === 0) resolve();
+
+      images.forEach((img) => {
+        if (img.complete) {
+          loadedCount++;
+          if (loadedCount === images.length) resolve();
+        } else {
+          img.onload = img.onerror = () => {
+            loadedCount++;
+            if (loadedCount === images.length) resolve();
+          };
+        }
+      });
+    });
+  };
+
   useEffect(() => {
-    const timer = setTimeout(() => {
+    const loadApp = async () => {
+      await preloadImages();
       setLoading(false);
-      setContentKey(prev => prev + 1); 
-    }, 2000);
-    return () => clearTimeout(timer);
+      setContentKey(prev => prev + 1);
+    };
+    loadApp();
   }, []);
 
   return (
