@@ -3,6 +3,12 @@ import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Fade } from "react-awesome-reveal";
 
+// Images 
+import PraxisOne from "./Assets/Praxis-images/praxis1.png";
+import PraxisTwo from "./Assets/Praxis-images/praxis2.png";
+import PraxisThree from "./Assets/Praxis-images/praxis3.png";
+import PraxisFour from "./Assets/Praxis-images/praxis4.png";
+
 // Components
 import { FooterComponent } from './Components/FooterComponent/Footer';
 import { HeaderComponent } from './Components/HeaderComponent/Header';
@@ -21,7 +27,6 @@ import { Kontakt } from "./Pages/Kontakt_Page/Kontakt";
 
 // Scroll to Top
 import { ScrollToTop } from './ScrollToTop';
-
 
 const Spinner = () => (
   <div style={{
@@ -93,41 +98,28 @@ const AppWithContent = ({ headerKey, scrollToFooter }) => (
 function App() {
   const [loading, setLoading] = useState(true);
   const [contentKey, setContentKey] = useState(0);
-
   const footerRef = useRef(null);
 
   const scrollToFooter = () => {
     footerRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const preloadImages = () => {
-    return new Promise((resolve) => {
-      const images = Array.from(document.images);
-      let loadedCount = 0;
-
-      if (images.length === 0) resolve();
-
-      images.forEach((img) => {
-        if (img.complete) {
-          loadedCount++;
-          if (loadedCount === images.length) resolve();
-        } else {
-          img.onload = img.onerror = () => {
-            loadedCount++;
-            if (loadedCount === images.length) resolve();
-          };
-        }
-      });
-    });
-  };
+  const imageUrls = [PraxisOne, PraxisTwo, PraxisThree, PraxisFour];
 
   useEffect(() => {
-    const loadApp = async () => {
-      await preloadImages();
-      setLoading(false);
-      setContentKey(prev => prev + 1);
-    };
-    loadApp();
+    let loadedCount = 0;
+
+    imageUrls.forEach((url) => {
+      const img = new Image();
+      img.src = url;
+      img.onload = img.onerror = () => {
+        loadedCount++;
+        if (loadedCount === imageUrls.length) {
+          setLoading(false); 
+          setContentKey(prev => prev + 1);
+        }
+      };
+    });
   }, []);
 
   return (
