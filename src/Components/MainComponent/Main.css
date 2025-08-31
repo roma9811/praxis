@@ -1,7 +1,8 @@
- .main { 
-  height: auto; 
-  padding: 60px 0; 
+.main {
+  height: auto;
+  padding: 60px 0;
 }
+
 .öffnungszeiten__box,
 .telefon__box,
 .kontakt__box {

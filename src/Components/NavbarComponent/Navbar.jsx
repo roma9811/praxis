@@ -16,16 +16,29 @@ export const NavbarComponent = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const location = useLocation();
 
-  // функция для прокрутки вверх
   const scrollToTop = React.useCallback(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    const candidates = [
+      document.scrollingElement,
+      document.documentElement,
+      document.body,
+      document.getElementById("root"),
+      document.querySelector("main"),
+      document.querySelector(".app"),
+      document.querySelector(".page"),
+      document.querySelector(".container"),
+    ].filter(Boolean);
+
+    candidates.forEach((el) => {
+      if ("scrollTo" in el) {
+        el.scrollTo({ top: 0, behavior: "smooth" });
+      } else {
+        el.scrollTop = 0;
+      }
+    });
   }, []);
 
-  // гарантированно скроллим вверх при смене пути
   React.useEffect(() => {
-    const timer = setTimeout(() => {
-      scrollToTop();
-    }, 50); // задержка чтобы успела отрендериться страница
+    const timer = setTimeout(() => scrollToTop(), 50);
     return () => clearTimeout(timer);
   }, [location.pathname, scrollToTop]);
 
@@ -33,26 +46,37 @@ export const NavbarComponent = () => {
     <div className="navbar">
       <div className="container">
         <nav className="nav__box">
+          {/* Логотип */}
           <div className="logo">
             <Button
               className="nav-button"
               component={Link}
               to="/"
-              onClick={() => setIsMenuOpen(false)}
+              onClick={() => {
+                setIsMenuOpen(false);
+                requestAnimationFrame(() => scrollToTop());
+              }}
               sx={{ padding: 0, minWidth: "auto" }}
             >
               <img src={Logo} alt="Logo" width={180} />
             </Button>
           </div>
-
           <div className="nav__list">
-            <ul>
+            <ul
+              style={{
+                display: "flex",
+                gap: "5rem",
+                listStyle: "none",
+                padding: 0,
+                margin: 0,
+              }}
+            >
               {/* Startseite */}
               <li className="nav_list">
                 <Button
                   component={Link}
                   to="/"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={() => requestAnimationFrame(() => scrollToTop())}
                   startIcon={<Home size={28} color="#A82834" />}
                 >
                   Startseite
@@ -129,8 +153,7 @@ export const NavbarComponent = () => {
               </li>
             </ul>
           </div>
-
-          {/* Burger Menu */}
+          
           <div className="burger__menu">
             <BurgerMenu
               right
@@ -156,125 +179,41 @@ export const NavbarComponent = () => {
                   <AnimatePresence>
                     {isMenuOpen && (
                       <>
-                        {/* Startseite */}
-                        <motion.li
-                          initial={{ opacity: 0, x: -250 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          exit={{ opacity: 0, x: -250 }}
-                          transition={{ delay: 0.1, duration: 0.3 }}
-                          style={{ marginBottom: "15px" }}
-                        >
-                          <Link
-                            to="/"
-                            onClick={() => setIsMenuOpen(false)}
-                            style={{
-                              display: "flex",
-                              alignItems: "center",
-                              gap: "10px",
-                              textDecoration: "none",
-                              color: "inherit",
-                            }}
+                        {[
+                          { to: "/", label: "Startseite", icon: <Home size={28} color="#A82834" />, scrollTop: true },
+                          { to: "/kontakt", label: "Kontakt", icon: <Contact size={28} color="#A82834" /> },
+                          { to: "/vorsorge", label: "Vorsorge", icon: <img src={VorsorgeImg} alt="Vorsorge" width={30} /> },
+                          { to: "/untersuchungen", label: "Untersuchungen", icon: <img src={Check} alt="Untersuchungen" width={30} /> },
+                          { to: "/notfall", label: "Notfall", icon: <Ambulance size={28} color="#A82834" /> },
+                        ].map((item, index) => (
+                          <motion.li
+                            key={item.to}
+                            initial={{ opacity: 0, x: -250 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: -250 }}
+                            transition={{ delay: 0.1 * (index + 1), duration: 0.3 }}
+                            style={{ marginBottom: "15px" }}
                           >
-                            <Home size={28} color="#A82834" />
-                            Startseite
-                          </Link>
-                        </motion.li>
-
-                        {/* Kontakt */}
-                        <motion.li
-                          initial={{ opacity: 0, x: -250 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          exit={{ opacity: 0, x: -250 }}
-                          transition={{ delay: 0.2, duration: 0.3 }}
-                          style={{ marginBottom: "15px" }}
-                        >
-                          <Link
-                            to="/kontakt"
-                            onClick={() => setIsMenuOpen(false)}
-                            style={{
-                              display: "flex",
-                              alignItems: "center",
-                              gap: "10px",
-                              textDecoration: "none",
-                              color: "inherit",
-                            }}
-                          >
-                            <Contact size={28} color="#A82834" />
-                            Kontakt
-                          </Link>
-                        </motion.li>
-
-                        {/* Vorsorge */}
-                        <motion.li
-                          initial={{ opacity: 0, x: -250 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          exit={{ opacity: 0, x: -250 }}
-                          transition={{ delay: 0.3, duration: 0.3 }}
-                          style={{ marginBottom: "15px" }}
-                        >
-                          <Link
-                            to="/vorsorge"
-                            onClick={() => setIsMenuOpen(false)}
-                            style={{
-                              display: "flex",
-                              alignItems: "center",
-                              gap: "10px",
-                              textDecoration: "none",
-                              color: "inherit",
-                            }}
-                          >
-                            <img src={VorsorgeImg} alt="Vorsorge" width={30} />
-                            Vorsorge
-                          </Link>
-                        </motion.li>
-
-                        {/* Untersuchungen */}
-                        <motion.li
-                          initial={{ opacity: 0, x: -250 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          exit={{ opacity: 0, x: -250 }}
-                          transition={{ delay: 0.4, duration: 0.3 }}
-                          style={{ marginBottom: "15px" }}
-                        >
-                          <Link
-                            to="/untersuchungen"
-                            onClick={() => setIsMenuOpen(false)}
-                            style={{
-                              display: "flex",
-                              alignItems: "center",
-                              gap: "10px",
-                              textDecoration: "none",
-                              color: "inherit",
-                            }}
-                          >
-                            <img src={Check} alt="Untersuchungen" width={30} />
-                            Untersuchungen
-                          </Link>
-                        </motion.li>
-
-                        {/* Notfall */}
-                        <motion.li
-                          initial={{ opacity: 0, x: -250 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          exit={{ opacity: 0, x: -250 }}
-                          transition={{ delay: 0.5, duration: 0.3 }}
-                          style={{ marginBottom: "15px" }}
-                        >
-                          <Link
-                            to="/notfall"
-                            onClick={() => setIsMenuOpen(false)}
-                            style={{
-                              display: "flex",
-                              alignItems: "center",
-                              gap: "10px",
-                              textDecoration: "none",
-                              color: "inherit",
-                            }}
-                          >
-                            <Ambulance size={28} color="#A82834" />
-                            Notfall
-                          </Link>
-                        </motion.li>
+                            <Link
+                              to={item.to}
+                              onClick={() => {
+                                setIsMenuOpen(false);
+                                if (item.scrollTop) {
+                                  requestAnimationFrame(() => scrollToTop());
+                                }
+                              }}
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "10px",
+                                textDecoration: "none",
+                                color: "inherit",
+                              }}
+                            >
+                              {item.icon} {item.label}
+                            </Link>
+                          </motion.li>
+                        ))}
                       </>
                     )}
                   </AnimatePresence>

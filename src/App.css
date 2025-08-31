@@ -49,7 +49,7 @@ body {
 /* ---- responsive breakpoints ---- */
 @media screen and (max-width: 767px) {
   .container {
-    padding: 20px;
+    padding: 15px;
   }
 }
 
