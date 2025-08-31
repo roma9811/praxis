@@ -1,7 +1,6 @@
  import "./MainTwo.css";
-import Service from "../../Assets/Logo/service.png";
 import Play from "../../Assets/Logo/play.png";
-
+ import {HeartPulse } from "lucide-react";
 export const MainComponentTwo = () => {
     return (
         <div className="main__two">
@@ -9,7 +8,7 @@ export const MainComponentTwo = () => {
                 <div className="leistungen__container">
                     <div className="leistungen__text">
                         <div className="service__icon">
-                            <img src={Service} width={40} alt="" />
+                             <HeartPulse size={35} color="#A82834" />
                         </div>
                         <h1>Unsere Leistungen</h1>
                     </div>

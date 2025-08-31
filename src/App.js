@@ -120,7 +120,7 @@ function App() {
         }
       };
     });
-  }, []);
+  },[]);
 
   return (
     <Router>

@@ -38,7 +38,7 @@
 
 .datenschutz p {
   color: #555;
-  font-size: 1rem;
+  font-size: 1.1rem;
   line-height: 1.6;
   margin-bottom: 20px;
 }
@@ -52,14 +52,37 @@
   text-decoration: underline;
 }
 
-/* Landscape */
-@media screen and (max-width: 767px) and (orientation: landscape) {
- .datenschutz p {
-  color: #555;
-  font-size: 0.7rem;
-  line-height: 1.6;
-  margin-bottom: 20px;
-} 
+ @media screen and (max-width: 767px) {
+.datenschutz h1 {font-size: 1.3rem;}
+.datenschutz h2 {font-size: 1.1rem;}
+.datenschutz h3 {font-size: 1rem;}
+.datenschutz p {font-size: .8rem}
 }
  
+
+
+@media screen and (min-width: 768px) and (max-width: 1023px){
+.datenschutz h1 {font-size: 1.4rem;}
+.datenschutz h2 {font-size: 1.3rem;}
+.datenschutz h3 {font-size: 1.1rem;}
+.datenschutz p {font-size: 1rem}
+}
+
+
+
+/* Landscape */
+@media screen and (max-width: 767px) and (orientation: landscape) {
+ .datenschutz h1 {font-size: 1.2rem;}
+.datenschutz h2 {font-size: .9rem;}
+.datenschutz h3 {font-size: .8rem;}
+.datenschutz p {font-size: .6rem}
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
+.datenschutz h1 {font-size: 1.4rem;}
+.datenschutz h2 {font-size: 1.1rem;}
+.datenschutz h3 {font-size: 1rem;}
+.datenschutz p {font-size: .9rem}
+
+}
 

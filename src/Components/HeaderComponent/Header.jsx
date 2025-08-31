@@ -44,12 +44,13 @@ export const HeaderComponent = () => {
           <div className="praxis__box">
             <div className="praxis__text">
               <h1>
-                Herzlich willkommen <br /> in der{" "}
+                Herzlich willkommen  in der <br />{" "}
                 <span>Praxis Dr. Sander </span> <br /> in Weinheim !
               </h1>
+              <p>Wir freuen uns, Sie in unserer modernen und freundlichen Praxis
+                begrüßen zu dürfen.</p>
               <p>
-                Wir freuen uns, Sie in unserer modernen und freundlichen Praxis
-                begrüßen zu dürfen. Unser Ziel ist es, Ihnen eine umfassende,
+                 Unser Ziel ist es, Ihnen eine umfassende,
                 kompetente und einfühlsame medizinische Betreuung zu bieten – mit
                 Zeit, Aufmerksamkeit und auf Augenhöhe.
               </p>
